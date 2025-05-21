@@ -1,0 +1,361 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.ExportType="csv" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ResultMessage" Type="OutArgument(x:String)" />
+    <x:Property Name="SalesOpportunitiesLocalPath" Type="OutArgument(x:String)" />
+    <x:Property Name="ExportType" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="45">
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>UiPath.UIAutomationNext</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Design.Services.Contracts</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Services.RuntimeAnalyze</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.Platform</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="64">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.CodedWorkflows</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="921,2896" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="ui:CurrentJobInfo" Name="JobData" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:ManualTrigger Result="{x:Null}" DisplayName="Manual Trigger" sap:VirtualizedContainerService.HintSize="654,77" sap2010:WorkflowViewState.IdRef="ManualTrigger_1" />
+    <ui:GetCurrentJobInfo DisplayName="Get Job Information" sap:VirtualizedContainerService.HintSize="654,122" sap2010:WorkflowViewState.IdRef="GetCurrentJobInfo_1" Result="[JobData]" />
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="654,173" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[JobData.WorkflowName]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <TryCatch DisplayName="Try Executing Automation" sap:VirtualizedContainerService.HintSize="654,2337" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="620,1543" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="586,122" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;Opportunities extraction started&quot;]" />
+          <uix:NApplicationCard AttachMode="SingleWindow" DisplayName="Use Browser: Sales Opportunities" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="586,1244" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,934" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="upr:ILocalResource" Name="SalesOpportunitiesFile" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export'" HealingAgentBehavior="RecommendationOnly" sap:VirtualizedContainerService.HintSize="518,139" sap2010:WorkflowViewState.IdRef="NClick_1" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V4">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="rpasamples.com/opportunities" CVScreenId="da154f03-a007-4b81-8312-c621dc193c4d" CvElementArea="1598, 30, 91, 39" CvTextArea="1621, 41, 45, 17" CvTextArgument="Export" CvType="Button" DesignTimeRectangle="1599, 31, 88, 36" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='btn-export' aaname=' Export ' check:innerText='Export' /&gt;" Guid="5d7ff090-0644-4fa4-a42c-cbacc46e5e95" InformativeScreenshot="43203a5f3ca4009d5c07eb9f86c3cd83.png" ScopeSelectorArgument="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="None">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="da154f03-a007-4b81-8312-c621dc193c4d" CvElementArea="1598, 30, 91, 39" CvTextArea="755, 40, 911, 20" CvTextArgument="Report: Opportunities Export" CvType="Button" DesignTimeRectangle="718, 21, 1069, 56" FuzzySelectorArgument="&lt;webctrl tag='DIV' parentid='app' type='' class='title-bar flex-container' aaname='' check:innerText='Report: Opportunities&amp;#xA;Export' /&gt;" Guid="4d2d9550-f8bf-40d1-96ea-a7703c27798b" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <If Condition="[ExportType.Contains(&quot;csv&quot;)]" DisplayName="Check export type, wait for download, and report status accordingly" sap:VirtualizedContainerService.HintSize="518,508" sap2010:WorkflowViewState.IdRef="If_1">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484,230" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:GetLastDownloadedFile File="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download - Formatted Report" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" FileResource="[SalesOpportunitiesFile]" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_1">
+                          <ui:GetLastDownloadedFile.Body>
+                            <ActivityAction>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,190" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export' 1" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V4">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="rpasamples.com/opportunities" DesignTimeRectangle="1232, 183, 188, 136" FuzzySelectorArgument="&lt;webctrl tag='DIV' parentid='app' class='export-option' type='' aaname='' check:innerText='Details Only&amp;#xA;Export only the detail rows.' /&gt;" Guid="afc0b240-2166-4d51-b828-3391c9841200" InformativeScreenshot="c4f9ab6f39bf14dbcd9c4dd35fd41aac.png" ScopeSelectorArgument="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="None">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="5d19c6c5-03ac-4d26-9199-9210ca20daa4" CvTextArea="1224, 97, 58, 21" CvTextArgument="Export" CvType="Text" DesignTimeRectangle="1013, 80, 480, 53" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='DIV' parentid='app' class='popup-header' type='' aaname='Export' check:innerText='Export' /&gt;" Guid="61b30c6f-411f-4629-a4cf-f65cc3c4330a" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NSelectItem DisplayName="Select Item 'Format'" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NSelectItem_1" Item="Comma Separated (*.csv)" ScopeIdentifier="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V4">
+                                  <uix:NSelectItem.Items>
+                                    <scg:List x:TypeArguments="x:String" Capacity="2">
+                                      <x:String>Excel (*.xlsx)</x:String>
+                                      <x:String>Comma Separated (*.csv)</x:String>
+                                    </scg:List>
+                                  </uix:NSelectItem.Items>
+                                  <uix:NSelectItem.Target>
+                                    <uix:TargetAnchorable BrowserURL="rpasamples.com/opportunities" CVScreenId="8381cc0a-836d-4629-840f-39675b35ea57" CvElementArea="1027, 352, 201, 33" CvType="InputBox" DesignTimeRectangle="1029, 353, 198, 31" ElementType="DropDown" FuzzySelectorArgument="&lt;webctrl tag='SELECT' type='' class='down-chevron' aaname='' /&gt;" Guid="3408a4c3-17d7-474c-a288-c46f10da2c93" InformativeScreenshot="95452aa07fdde2b65f33c816d4f7eae4.png" ScopeSelectorArgument="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" SearchSteps="FuzzySelector, CV" Version="V5" Visibility="Interactive" WaitForReadyArgument="None">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="8381cc0a-836d-4629-840f-39675b35ea57" CvTextArea="1028, 334, 44, 12" CvTextArgument="Format" CvType="Text" DesignTimeRectangle="1029, 331, 448, 20" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='DIV' parentid='app' class='lbl-export-format' type='' aaname='Format' check:innerText='Format' /&gt;" Guid="b179df3f-9c4b-4d02-81e5-4b52fe325251" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NSelectItem.Target>
+                                </uix:NSelectItem>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="450,130" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V4">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="rpasamples.com/opportunities" DesignTimeRectangle="1428, 612, 76, 32" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname=' Export ' tag='BUTTON' type='' class='export-common footer-button' check:innerText='Export' /&gt;" Guid="8c7a66b6-9390-48de-bc18-d0e1fe7b0381" InformativeScreenshot="32db4d6c013dda5719de8df74a0fc5fd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sales Opportunities' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="1336, 612, 76, 32" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='cancel-button footer-button' aaname=' Cancel ' check:innerText='Cancel' /&gt;" Guid="efd8f14c-151f-46c6-b452-1f7e009cd90d" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:GetLastDownloadedFile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:GetLastDownloadedFile>
+                        <ui:ReportStatus DisplayName="Report the status of the export type - Formatted Report" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[string.Format(&quot;The export type is {0}.&quot;, ExportType)]" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484,108" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:GetLastDownloadedFile File="{x:Null}" IgnoreFiles="{x:Null}" Timeout="{x:Null}" DisplayName="Wait for Download - Details Only" DownloadFolder="[System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), &quot;Downloads&quot;)]" FileResource="[SalesOpportunitiesFile]" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="GetLastDownloadedFile_3">
+                          <ui:GetLastDownloadedFile.Body>
+                            <ActivityAction>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,190" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export'" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V4">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="rpasamples.com/opportunities" DesignTimeRectangle="1232, 183, 188, 136" FuzzySelectorArgument="&lt;webctrl tag='DIV' parentid='app' class='export-option' type='' aaname='' check:innerText='Details Only&amp;#xA;Export only the detail rows.' /&gt;" Guid="afc0b240-2166-4d51-b828-3391c9841200" InformativeScreenshot="c4f9ab6f39bf14dbcd9c4dd35fd41aac.png" ScopeSelectorArgument="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" SearchSteps="FuzzySelector" Version="V5" Visibility="Interactive" WaitForReadyArgument="None">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target CVScreenId="5d19c6c5-03ac-4d26-9199-9210ca20daa4" CvTextArea="1224, 97, 58, 21" CvTextArgument="Export" CvType="Text" DesignTimeRectangle="1013, 80, 480, 53" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='DIV' parentid='app' class='popup-header' type='' aaname='Export' check:innerText='Export' /&gt;" Guid="61b30c6f-411f-4629-a4cf-f65cc3c4330a" SearchSteps="FuzzySelector, CV" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <ui:ReportStatus DisplayName="Report the status of the export type - Details Only" sap2010:WorkflowViewState.IdRef="ReportStatus_4" StatusText="[string.Format(&quot;The export type is {0}.&quot;, ExportType)]" />
+                                <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Export'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="450,130" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="782d8cf1-857c-4779-bee7-b6c7e2e9e27c" Version="V4">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="rpasamples.com/opportunities" DesignTimeRectangle="1428, 612, 76, 32" ElementType="Button" FuzzySelectorArgument="&lt;webctrl aaname=' Export ' tag='BUTTON' type='' class='export-common footer-button' check:innerText='Export' /&gt;" Guid="8c7a66b6-9390-48de-bc18-d0e1fe7b0381" InformativeScreenshot="32db4d6c013dda5719de8df74a0fc5fd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Sales Opportunities' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="1336, 612, 76, 32" ElementType="Button" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='' class='cancel-button footer-button' aaname=' Cancel ' check:innerText='Cancel' /&gt;" Guid="efd8f14c-151f-46c6-b452-1f7e009cd90d" SearchSteps="FuzzySelector" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:GetLastDownloadedFile.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:GetLastDownloadedFile>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <Assign DisplayName="Assign the file path for Sales Opportunities to ResultMessage" sap:VirtualizedContainerService.HintSize="518,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[ResultMessage]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">["The file path for the Sales Opportunities is "+SalesOpportunitiesFile.LocalPath]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <ui:ReportStatus DisplayName="Report the status of the Sales Opportunities file path" sap:VirtualizedContainerService.HintSize="518,113" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;The file path for the Sales Opportunities is &quot;+SalesOpportunitiesFile.LocalPath]" />
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" InformativeScreenshot="22e94d15501ee92af6221aecba0e566e.png" Selector="&lt;html title='Sales Opportunities' app='chrome.exe' /&gt;" Url="https://www.rpasamples.com/opportunities" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+          <ui:Comment DisplayName="Comment - Try" sap:VirtualizedContainerService.HintSize="586,117" sap2010:WorkflowViewState.IdRef="Comment_1" Text="// Steps of the automation">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:Comment>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484,395" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign ResultMessage" sap:VirtualizedContainerService.HintSize="450,114" sap2010:WorkflowViewState.IdRef="Assign_1">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:String">[ResultMessage]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:String">["An error occurred: " + exception.Message]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message - System Exception" sap:VirtualizedContainerService.HintSize="450,173" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Error]" Message="[ResultMessage]" />
+              <Rethrow DisplayName="Rethrow System Exception" sap:VirtualizedContainerService.HintSize="450,48" sap2010:WorkflowViewState.IdRef="Rethrow_1" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="484,177" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:Comment DisplayName="Comment - Finally" sap:VirtualizedContainerService.HintSize="450,117" sap2010:WorkflowViewState.IdRef="Comment_2" Text="//Finally" />
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="654,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;/&quot; + JobData.WorkflowName]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>

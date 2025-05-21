@@ -1,0 +1,70 @@
+{
+  "name": "RPASamples Sales Opportunities Extraction",
+  "projectId": "05fe4878-834f-4740-9fd9-8d8ac3c40f87",
+  "previousProjectId": "615e2f65-c8c7-470a-9a46-d087ce330c0b",
+  "description": "Autopilot for everyone automation that extracts the sales opportunities report from https://www.rpasamples.com/opportunities",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.System.Activities": "24.12.1-preview",
+    "UiPath.Testing.Activities": "24.10.1",
+    "UiPath.UIAutomation.Activities": "24.12.4-preview"
+  },
+  "webServices": [],
+  "entitiesStores": [],
+  "schemaVersion": "4.0",
+  "studioVersion": "24.10.8.0",
+  "projectVersion": "1.0.6",
+  "runtimeOptions": {
+    "autoDispose": false,
+    "netFrameworkLazyLoading": false,
+    "isPausable": true,
+    "isAttended": false,
+    "requiresUserInteraction": false,
+    "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
+    "excludedLoggedData": [
+      "Private:*",
+      "*password*"
+    ],
+    "executionType": "Workflow",
+    "readyForPiP": false,
+    "startsInPiP": false,
+    "mustRestoreAllDependencies": true,
+    "pipType": "ChildSession"
+  },
+  "designOptions": {
+    "projectProfile": "Developement",
+    "outputType": "Process",
+    "libraryOptions": {
+      "includeOriginalXaml": false,
+      "privateWorkflows": []
+    },
+    "processOptions": {
+      "ignoredFiles": []
+    },
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "ede64c24-ecfd-4669-905f-90ca237dd09f",
+        "testCaseType": "TestCase",
+        "executionTemplateInvokeIsolated": false,
+        "fileName": "AFE_AutomationTestCase.xaml"
+      }
+    ],
+    "saveToCloud": false,
+    "cloudProjectUrl": "https://cloud.uipath.com/uipathlabs/studio_/designer/05fe4878-834f-4740-9fd9-8d8ac3c40f87"
+  },
+  "expressionLanguage": "VisualBasic",
+  "entryPoints": [
+    {
+      "filePath": "Main.xaml",
+      "uniqueId": "29459320-1b97-42e5-b835-9eafb1236aaf",
+      "input": [],
+      "output": []
+    }
+  ],
+  "isTemplate": false,
+  "templateProjectData": {},
+  "publishData": {},
+  "targetFramework": "Portable"
+}
